@@ -1,4 +1,4 @@
-FROM php:7.1.3
+FROM php:7.1.3-fpm
 
 LABEL maintainer "nunojsferreira@gmail.com"
 
@@ -20,5 +20,6 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-install -j$(nproc) gd \
     && docker-php-ext-install -j$(nproc) exif \
     && docker-php-ext-install -j$(nproc) bz2 \
-    && docker-php-ext-install -j$(nproc) zip
+    && docker-php-ext-install -j$(nproc) zip \
+    && docker-php-ext-install -j$(nproc) pdo_mysql
 
