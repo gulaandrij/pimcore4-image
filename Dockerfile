@@ -1,4 +1,4 @@
-FROM php:7.1.3-apache
+FROM php:7.1.33-apache
 
 LABEL maintainer "nunojsferreira@gmail.com"
 
