@@ -1,6 +1,6 @@
 FROM php:7.1.33-apache
 
-LABEL maintainer "nunojsferreira@gmail.com"
+LABEL maintainer "gyla.andrij@gmail.com"
 
 # Setup
 
@@ -19,6 +19,8 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-install -j$(nproc) bz2 \
     && docker-php-ext-install -j$(nproc) zip \
     && docker-php-ext-install -j$(nproc) pdo_mysql
+    
+RUN composer global require hirak/prestissimo byng/pimcore-composer-installer pimcore/pimcore:4.6.5 
 
 RUN a2enmod rewrite
 
