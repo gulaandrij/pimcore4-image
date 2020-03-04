@@ -18,7 +18,9 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-install -j$(nproc) exif \
     && docker-php-ext-install -j$(nproc) bz2 \
     && docker-php-ext-install -j$(nproc) zip \
-    && docker-php-ext-install -j$(nproc) pdo_mysql
+    && docker-php-ext-install -j$(nproc) pdo_mysql \
+    && docker-php-ext-install -j$(nproc) mysqli \
+    && docker-php-ext-install -j$(nproc) opcache
     
 RUN composer global require hirak/prestissimo byng/pimcore-composer-installer pimcore/pimcore:4.6.5 
 
