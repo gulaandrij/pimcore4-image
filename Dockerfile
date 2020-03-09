@@ -2,6 +2,8 @@ FROM php:7.1.33-apache
 
 LABEL maintainer "gyla.andrij@gmail.com"
 
+RUN printf "deb http://archive.debian.org/debian/ jessie main\ndeb-src http://archive.debian.org/debian/ jessie main\ndeb http://security.debian.org jessie/updates main\ndeb-src http://security.debian.org jessie/updates main" > /etc/apt/sources.list
+
 # Setup
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
@@ -24,5 +26,5 @@ RUN apt-get update && apt-get install -y \
     
 RUN composer global require hirak/prestissimo byng/pimcore-composer-installer pimcore/pimcore:4.6.5 
 
-RUN a2enmod rewrite
+RUN a2enmod rewrite headers
 
